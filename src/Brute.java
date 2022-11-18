@@ -13,23 +13,9 @@ public class Brute {
    File SHA256 = new File("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\SHA256.txt");
    File plain = new File("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\plaintext.txt");
     public Brute(){
-        Scanner key = new Scanner(System.in);
 
     }
 
-    public int LineNumber(File y, String z) throws FileNotFoundException {
-
-        Scanner fileScanner = new Scanner(y);
-        int lineNumber = 0;
-        while(fileScanner.hasNextLine()){
-                System.out.println(fileScanner.nextLine());
-                lineNumber++;
-        }
-
-        fileScanner.close();
-        return lineNumber;
-
-    }
     public String plain(String x) throws IOException {
         String answer;
         String shanswer;
