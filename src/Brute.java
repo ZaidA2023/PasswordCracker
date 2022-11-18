@@ -1,19 +1,14 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.stream.Stream;
 
 public class Brute {
-   File MD5 = new File("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\MD5HASH.txt");
-   File SHA256 = new File("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\SHA256.txt");
-   File plain = new File("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\plaintext.txt");
+    public static int cond;
     public Brute(){
-
+        cond=0;
     }
 
     public String plain(String x) throws IOException {
@@ -27,6 +22,7 @@ public class Brute {
             lineNumber++;
             if(line.equals(x)){
                 answer=x;
+                cond=1;
                 break;
             }
         }
@@ -36,7 +32,7 @@ public class Brute {
         try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\SHA256HASH.txt"))) {
             shanswer = lines.skip(lineNumber-1).findFirst().get();
         }
-        return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer;
+        return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer + "\n";
     }
     public String MD5(String x) throws IOException {
         String answer;
@@ -49,6 +45,7 @@ public class Brute {
             lineNumber++;
             if(line.equals(x)){
                 answer=x;
+                cond=1;
                 break;
             }
         }
@@ -58,7 +55,7 @@ public class Brute {
         try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\SHA256HASH.txt"))) {
             shanswer = lines.skip(lineNumber-1).findFirst().get();
         }
-        return "Plaintext: " + plainswer + "\n" + "SHA256 Hash: " + shanswer;
+        return "Plaintext: " + plainswer + "\n" + "SHA256 Hash: " + shanswer + "\n";
     }
 
 
@@ -73,6 +70,7 @@ public class Brute {
             lineNumber++;
             if(line.equals(x)){
                 answer=x;
+                cond=1;
                 break;
             }
         }
@@ -82,7 +80,7 @@ public class Brute {
         try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\plaintext.txt"))) {
             plainswer = lines.skip(lineNumber-1).findFirst().get();
         }
-        return "Plaintext: " + plainswer + "\n" + "MD5 Hash: " + md5swer;
+        return "Plaintext: " + plainswer + "\n" + "MD5 Hash: " + md5swer + "\n";
     }
     }
 
