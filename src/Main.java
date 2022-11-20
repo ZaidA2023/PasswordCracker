@@ -10,7 +10,7 @@ public class Main {
         Brute bob = new Brute();
         Dictionary mary = new Dictionary();
         String answer;
-        System.out.println("Brute Force Result");
+        System.out.println("Common Password Attack Result");
 
         if (ans.length() == 32) {
             answer=bob.MD5(ans);
@@ -53,7 +53,7 @@ public class Main {
         if(Dictionary.cond2==0){
             System.out.println("No result" + "\n");
         }
-        System.out.println("Brute Force 2 Attack Result");
+        System.out.println("\n"+"Brute Force Attack Result");
             RBrute hi = new RBrute();
             System.out.println(hi.Brute(ans,14));
         }

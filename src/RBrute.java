@@ -1,9 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.*;
 import java.lang.String;
@@ -14,29 +9,26 @@ import java.lang.String;
 public class RBrute {
     static String[] arr = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
     static String hash;
-    static String plain="No Password Found";
+    static String plain = "No Password Found";
+    static String compare;
 
     public RBrute() {
 
     }
 
-   /* public static void writer(String Z) {
-        try (FileWriter total = new FileWriter("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\huge", true);
-             BufferedWriter write = new BufferedWriter(total);
-             PrintWriter out = new PrintWriter(write)) {
-            out.println(Z);
-            //more code
-            //more code
-        } catch (IOException ignored) {
-
-        }
-    }
-
-    */
     public String Brute(String x, int y) throws NoSuchAlgorithmException {
-        hash=x.toUpperCase(Locale.ROOT);
+        hash = x.toUpperCase(Locale.ROOT);
+        compare=x.toLowerCase(Locale.ROOT);
         create(y);
-        return plain;
+        int what;
+        if (x.length() == 32) {
+            return "Plaintext: " + plain + "\n" + "SHA-256 Hash: " + SHA256a(plain).toLowerCase(Locale.ROOT);
+        }else if(x.length() == 64){
+            return "Plaintext: " + plain + "\n" + "MD5 Hash: " + MD5a(plain).toLowerCase(Locale.ROOT);
+        }else{
+            return "MD5 Hash: " + MD5a(plain).toLowerCase(Locale.ROOT) + "\n" + "SHA-256 Hash: " + SHA256a(plain).toLowerCase(Locale.ROOT);
+        }
+
     }
     static void create(int X) throws NoSuchAlgorithmException {
         String[] characters = arr;
@@ -65,7 +57,10 @@ public class RBrute {
 
             // Print all combinations of length z
             for (int i = 0; i < tmp.size(); i++) {
-                //writer(tmp.get(i));
+                //writer(tmp.get(i));\
+                if(tmp.get(i).equals(compare)){
+                    plain=tmp.get(i);
+                }
                 if(MD5a(tmp.get(i)).equals(hash)){
                     plain=tmp.get(i);
                 }else if(SHA256a(tmp.get(i)).equals(hash)) {

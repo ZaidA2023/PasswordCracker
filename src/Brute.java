@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 public class Brute {
@@ -11,7 +12,8 @@ public class Brute {
         cond=0;
     }
 
-    public String plain(String x) throws IOException {
+    public String plain(String y) throws IOException {
+        String x = y.toLowerCase(Locale.ROOT);
         String shanswer;
         String md5swer;
         int lineNumber = 0;
@@ -32,7 +34,8 @@ public class Brute {
         }
         return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer + "\n";
     }
-    public String MD5(String x) throws IOException {
+    public String MD5(String y) throws IOException {
+        String x = y.toLowerCase(Locale.ROOT);
         String shanswer;
         String plainswer;
         int lineNumber = 0;
@@ -55,7 +58,8 @@ public class Brute {
     }
 
 
-    public String SHA256(String x) throws IOException {
+    public String SHA256(String y) throws IOException {
+        String x = y.toLowerCase(Locale.ROOT);
         String plainswer;
         String md5swer;
         int lineNumber = 0;

@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 public class Dictionary {
@@ -11,7 +12,8 @@ public class Dictionary {
         cond2=0;
     }
 
-    public String plain(String x) throws IOException {
+    public String plain(String y) throws IOException {
+        String x = y.toLowerCase(Locale.ROOT);
         String answer;
         String shanswer;
         String md5swer;
@@ -34,7 +36,8 @@ public class Dictionary {
         }
         return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer;
     }
-    public String MD5(String x) throws IOException {
+    public String MD5(String y) throws IOException {
+        String x = y.toLowerCase(Locale.ROOT);
         String answer;
         String shanswer;
         String plainswer;
@@ -59,7 +62,8 @@ public class Dictionary {
     }
 
 
-    public String SHA256(String x) throws IOException {
+    public String SHA256(String y) throws IOException {
+        String x = y.toLowerCase(Locale.ROOT);
         String answer;
         String plainswer;
         String md5swer;
