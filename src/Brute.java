@@ -12,7 +12,6 @@ public class Brute {
     }
 
     public String plain(String x) throws IOException {
-        String answer;
         String shanswer;
         String md5swer;
         int lineNumber = 0;
@@ -21,7 +20,6 @@ public class Brute {
         while ((line = br.readLine()) != null) {
             lineNumber++;
             if(line.equals(x)){
-                answer=x;
                 cond=1;
                 break;
             }
@@ -35,7 +33,6 @@ public class Brute {
         return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer + "\n";
     }
     public String MD5(String x) throws IOException {
-        String answer;
         String shanswer;
         String plainswer;
         int lineNumber = 0;
@@ -44,7 +41,6 @@ public class Brute {
         while ((line = br.readLine()) != null) {
             lineNumber++;
             if(line.equals(x)){
-                answer=x;
                 cond=1;
                 break;
             }
@@ -60,7 +56,6 @@ public class Brute {
 
 
     public String SHA256(String x) throws IOException {
-        String answer;
         String plainswer;
         String md5swer;
         int lineNumber = 0;
@@ -69,7 +64,6 @@ public class Brute {
         while ((line = br.readLine()) != null) {
             lineNumber++;
             if(line.equals(x)){
-                answer=x;
                 cond=1;
                 break;
             }

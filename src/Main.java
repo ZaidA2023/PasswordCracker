@@ -1,8 +1,9 @@
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         Scanner wow = new Scanner(System.in);
         System.out.println("Insert MD5/SHA256/Byte Hash or Plaintext");
         String ans = wow.next();
@@ -52,6 +53,13 @@ public class Main {
         if(Dictionary.cond2==0){
             System.out.println("No result" + "\n");
         }
+        System.out.println("Brute Force 2 Attack Result");
+            RBrute hi = new RBrute();
+            System.out.println(hi.Brute(ans,14));
         }
-    }
+
+
+
+}
+
 
