@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 
 public class Main {
+    static Scanner wow = new Scanner(System.in);
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-        Scanner wow = new Scanner(System.in);
         System.out.println("Insert MD5/SHA256/Byte Hash or Plaintext");
         String ans = wow.next();
        Brute bob = new Brute();
@@ -64,7 +64,9 @@ public class Main {
         }
         System.out.println("\n"+"Brute Force Attack Result");
             RBrute hi = new RBrute();
-            System.out.println(hi.Brute(ans,3));
+            System.out.println("Insert Max Password Size (Note: Bigger number = longer runtime)");
+            int max = wow.nextInt();
+            System.out.println(hi.Brute(ans,max));
         }
 
 
