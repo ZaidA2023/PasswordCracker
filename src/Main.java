@@ -66,6 +66,7 @@ public class Main {
             RBrute hi = new RBrute();
             System.out.println("Insert Max Password Size (Note: Bigger number = longer runtime)");
             int max = wow.nextInt();
+            System.out.println("Running... This might take a while, go do something else");
             System.out.println(hi.Brute(ans,max));
         }
 
