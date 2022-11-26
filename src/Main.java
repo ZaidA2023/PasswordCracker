@@ -8,15 +8,14 @@ public class Main {
         Scanner wow = new Scanner(System.in);
         System.out.println("Insert MD5/SHA256/Byte Hash or Plaintext");
         String ans = wow.next();
-       //Brute bob = new Brute();
-        //Dictionary mary = new Dictionary();
-        //String answer;
+       Brute bob = new Brute();
+        Dictionary mary = new Dictionary();
+        String answer;
         System.out.println("Common Password Attack Result");
 
-        RBrute hi = new RBrute();
-        System.out.println(hi.Brute(ans,2));
 
-        /*if (ans.length() == 32) {
+
+        if (ans.length() == 32) {
             answer=bob.MD5(ans);
             if (Brute.cond == 1) {
                 System.out.println(answer);
@@ -65,14 +64,14 @@ public class Main {
         }
         System.out.println("\n"+"Brute Force Attack Result");
             RBrute hi = new RBrute();
-            System.out.println(hi.Brute(ans,6));
+            System.out.println(hi.Brute(ans,3));
         }
-        */
+
 
     }
 
 
 
-}
+
 
 

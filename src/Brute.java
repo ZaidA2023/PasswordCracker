@@ -32,7 +32,7 @@ public class Brute {
         try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\SHA256HASH.txt"))) {
             shanswer = lines.skip(lineNumber-1).findFirst().get();
         }
-        return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer + "\n";
+        return "MD5 Hash: " + md5swer + "\n" + "SHA-256 Hash: " + shanswer + "\n";
     }
     public String MD5(String y) throws IOException {
         String x = y.toLowerCase(Locale.ROOT);

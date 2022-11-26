@@ -7,18 +7,22 @@ import java.util.*;
 import java.lang.String;
 import java.util.stream.Stream;
 
+import static java.lang.System.exit;
+
 
 public class RBrute {
     static String[] arr = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-    static char[] alphabet = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','z','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','1','2', '3', '4', '5', '6', '7', '8', '9','0','@','!'};
+    static char[] alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '@', '!'};
     static String hash;
     static String plain = "No Password Found";
     static String compare;
 
+
     public RBrute() {
 
     }
-   public static void write(String Z) {
+
+    public static void write(String Z) {
         try (FileWriter total = new FileWriter("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\huge", true);
              BufferedWriter write = new BufferedWriter(total);
              PrintWriter out = new PrintWriter(write)) {
@@ -32,7 +36,8 @@ public class RBrute {
         hash = x.toUpperCase(Locale.ROOT);
         compare = x;
         //create(y);
-        possibleStrings("",y);
+        return possibleStrings("", y);
+        //eturn aw;
         //int what;
         //if (x.length() == 32) {
         //   return "Plaintext: " + plain + "\n" + "SHA-256 Hash: " + SHA256a(plain).toLowerCase(Locale.ROOT);
@@ -41,34 +46,49 @@ public class RBrute {
         // }else{
         //  return "MD5 Hash: " + MD5a(plain).toLowerCase(Locale.ROOT) + "\n" + "SHA-256 Hash: " + SHA256a(plain).toLowerCase(Locale.ROOT);
         // }
-        return "done";
+
         //return "WRONG";
     }
 
 
+    public String possibleStrings(String curr, int maxLength) throws FileNotFoundException, NoSuchAlgorithmException {
+        // If the current string has reached it's maximum length
+        if (curr.length() == maxLength) {
+            //System.out.println(curr);
 
-        public void possibleStrings(String curr, int maxLength) throws FileNotFoundException {
-            // If the current string has reached it's maximum length
-            if (curr.length() == maxLength) {
+            // Else add each letter from the alphabet to new strings and process these new strings again
+        } else {
+            for (int i = 0; i < alphabet.length; i++) {
+                String oldCurr = curr;
+                curr += alphabet[i];
                 //System.out.println(curr);
-
-                // Else add each letter from the alphabet to new strings and process these new strings again
-            } else {
-                for (int i = 0; i < alphabet.length; i++) {
-                    String oldCurr = curr;
-                    curr += alphabet[i];
-
-                    if(curr.equals(compare)){
-                        System.out.println(curr);
-                        //return curr;
-                    }
-                    possibleStrings(curr,maxLength);
-                    curr = oldCurr;
+                String md=MD5a(curr);
+                String sh=SHA256a(curr);
+                if (curr.equals(compare)) {
+                    System.out.println("MD5 Hash: "+md);
+                    System.out.println("SHA-256 Hash: "+sh);
+                    exit(1);
                 }
+                if (md.equals(compare)) {
+                    System.out.println("Plain Text: "+curr);
+                    System.out.println("SHA-256 Hash: "+sh);
+                    exit(1);
+                }
+                if (sh.equals(compare)) {
+                    System.out.println("Plain Text: "+curr);
+                    System.out.println("MD5 Hash: "+md);
+                    exit(1);
+                }
+
+                possibleStrings(curr, maxLength);
+                curr = oldCurr;
+
             }
 
         }
+        return "bruh";
     }
+
 
     /*
     static void create(int X) throws NoSuchAlgorithmException, IOException {
@@ -102,20 +122,28 @@ public class RBrute {
 
 
     }
+    */
+
     public static String MD5a(String P) throws NoSuchAlgorithmException {
-            MessageDigest m = MessageDigest.getInstance("MD5");
-            byte[] data = P.getBytes();
-            m.update(data,0,data.length);
-            BigInteger i = new BigInteger(1,m.digest());
-            return String.format("%1$032X", i);
+        String lower;
+        MessageDigest m = MessageDigest.getInstance("MD5");
+        byte[] data = P.getBytes();
+        m.update(data, 0, data.length);
+        BigInteger i = new BigInteger(1, m.digest());
+        lower=String.format("%1$032X", i);
+        return lower.toLowerCase(Locale.ROOT);
     }
+
     public static String SHA256a(String L) throws NoSuchAlgorithmException {
+        String lower;
         MessageDigest m = MessageDigest.getInstance("SHA-256");
         byte[] data = L.getBytes();
-        m.update(data,0,data.length);
-        BigInteger i = new BigInteger(1,m.digest());
-        return String.format("%1$064X", i);
-    }*/
+        m.update(data, 0, data.length);
+        BigInteger i = new BigInteger(1, m.digest());
+        lower= String.format("%1$064X", i);
+        return lower.toLowerCase(Locale.ROOT);
+    }
+}
 
 
 
