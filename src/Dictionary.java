@@ -14,7 +14,6 @@ public class Dictionary {
 
     public String plain(String y) throws IOException {
         String x = y.toLowerCase(Locale.ROOT);
-        String answer;
         String shanswer;
         String md5swer;
         int lineNumber = 0;
@@ -23,7 +22,6 @@ public class Dictionary {
         while ((line = br.readLine()) != null) {
             lineNumber++;
             if(line.equals(x)){
-                answer=x;
                 cond2++;
                 break;
             }
@@ -38,7 +36,6 @@ public class Dictionary {
     }
     public String MD5(String y) throws IOException {
         String x = y.toLowerCase(Locale.ROOT);
-        String answer;
         String shanswer;
         String plainswer;
         int lineNumber = 0;
@@ -47,7 +44,6 @@ public class Dictionary {
         while ((line = br.readLine()) != null) {
             lineNumber++;
             if(line.equals(x)){
-                answer=x;
                 cond2++;
                 break;
             }
@@ -64,7 +60,6 @@ public class Dictionary {
 
     public String SHA256(String y) throws IOException {
         String x = y.toLowerCase(Locale.ROOT);
-        String answer;
         String plainswer;
         String md5swer;
         int lineNumber = 0;
@@ -73,7 +68,6 @@ public class Dictionary {
         while ((line = br.readLine()) != null) {
             lineNumber++;
             if(line.equals(x)){
-                answer=x;
                 cond2++;
                 break;
             }

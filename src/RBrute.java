@@ -1,4 +1,3 @@
-import java.io.*;
 import java.math.BigInteger;
 import java.security.*;
 import java.util.*;
@@ -17,7 +16,7 @@ public class RBrute {
 
     }
 
-    public String Brute(String x, int y) throws NoSuchAlgorithmException, IOException {
+    public String Brute(String x, int y) throws NoSuchAlgorithmException {
         hash = x.toUpperCase(Locale.ROOT);
         compare = x;
         //create(y);
@@ -25,8 +24,8 @@ public class RBrute {
     }
 
 
-    public String possibleStrings(String curr, int maxLength) throws FileNotFoundException, NoSuchAlgorithmException {
-        // If the current string has reached it's maximum length
+    public String possibleStrings(String curr, int maxLength) throws NoSuchAlgorithmException {
+        // If the current string has reached its maximum length
         if (curr.length() == maxLength) {
             //System.out.println(curr);
 
