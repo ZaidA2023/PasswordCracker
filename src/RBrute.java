@@ -1,20 +1,15 @@
 import java.io.*;
 import java.math.BigInteger;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.security.*;
 import java.util.*;
 import java.lang.String;
-import java.util.stream.Stream;
 
 import static java.lang.System.exit;
 
 
 public class RBrute {
-    static String[] arr = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
     static char[] alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '@', '!'};
     static String hash;
-    static String plain = "No Password Found";
     static String compare;
 
 
@@ -22,32 +17,11 @@ public class RBrute {
 
     }
 
-    public static void write(String Z) {
-        try (FileWriter total = new FileWriter("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\huge", true);
-             BufferedWriter write = new BufferedWriter(total);
-             PrintWriter out = new PrintWriter(write)) {
-            out.println(Z);
-
-        } catch (IOException ignored) {
-        }
-    }
-
     public String Brute(String x, int y) throws NoSuchAlgorithmException, IOException {
         hash = x.toUpperCase(Locale.ROOT);
         compare = x;
         //create(y);
         return possibleStrings("", y);
-        //eturn aw;
-        //int what;
-        //if (x.length() == 32) {
-        //   return "Plaintext: " + plain + "\n" + "SHA-256 Hash: " + SHA256a(plain).toLowerCase(Locale.ROOT);
-        // }else if(x.length() == 64){
-        //return "Plaintext: " + plain + "\n" + "MD5 Hash: " + MD5a(plain).toLowerCase(Locale.ROOT);
-        // }else{
-        //  return "MD5 Hash: " + MD5a(plain).toLowerCase(Locale.ROOT) + "\n" + "SHA-256 Hash: " + SHA256a(plain).toLowerCase(Locale.ROOT);
-        // }
-
-        //return "WRONG";
     }
 
 
@@ -88,41 +62,6 @@ public class RBrute {
         }
         return "bruh";
     }
-
-
-    /*
-    static void create(int X) throws NoSuchAlgorithmException, IOException {
-
-        String magico="";
-        int count = 0;
-        int linecount=26;
-
-        // Traverse all possible lengths
-        for (int z = 0; z < X - 1; z++) {
-
-
-            // Stores all combinations
-            // of length z
-            // Traverse the array
-            for (int i = 0; i < arr.length; i++) {
-                for (int k = 0; k < 30; k++) {
-                    count++;
-                    Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\huge"));
-                    magico = lines.skip(count).findFirst().get();
-                    if (!arr[i].equals(magico)) {
-                        write(magico + arr[i]);
-                        linecount++;
-                    }
-                }
-            }
-            // Replace all combinations of length z - 1
-            // with all combinations of length z
-
-        }
-
-
-    }
-    */
 
     public static String MD5a(String P) throws NoSuchAlgorithmException {
         String lower;
