@@ -17,7 +17,7 @@ public class Dictionary {
         String shanswer;
         String md5swer;
         int lineNumber = 0;
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\words_alpha.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\words_alpha.txt"));
         String line;
         while ((line = br.readLine()) != null) {
             lineNumber++;
@@ -26,10 +26,10 @@ public class Dictionary {
                 break;
             }
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\md5dic.txt"))) {
+        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\md5dic.txt"))) {
             md5swer = lines.skip(lineNumber-1).findFirst().get();
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\sha256dic.txt"))) {
+        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\sha256dic.txt"))) {
             shanswer = lines.skip(lineNumber-1).findFirst().get();
         }
         return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer;
@@ -39,7 +39,7 @@ public class Dictionary {
         String shanswer;
         String plainswer;
         int lineNumber = 0;
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\md5dic.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\md5dic.txt"));
         String line;
         while ((line = br.readLine()) != null) {
             lineNumber++;
@@ -48,10 +48,10 @@ public class Dictionary {
                 break;
             }
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\words_alpha.txt"))) {
+        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\words_alpha.txt"))) {
             plainswer = lines.skip(lineNumber-1).findFirst().get();
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\sha256dic.txt"))) {
+        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\sha256dic.txt"))) {
             shanswer = lines.skip(lineNumber-1).findFirst().get();
         }
         return "Plaintext: " + plainswer + "\n" + "SHA256 Hash: " + shanswer;
@@ -63,7 +63,7 @@ public class Dictionary {
         String plainswer;
         String md5swer;
         int lineNumber = 0;
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\sha256dic.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\sha256dic.txt"));
         String line;
         while ((line = br.readLine()) != null) {
             lineNumber++;
@@ -72,10 +72,10 @@ public class Dictionary {
                 break;
             }
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\md5dic.txt"))) {
+        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\md5dic.txt"))) {
             md5swer = lines.skip(lineNumber-1).findFirst().get();
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\untitled\\src\\words_alpha.txt"))) {
+        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\words_alpha.txt"))) {
             plainswer = lines.skip(lineNumber-1).findFirst().get();
         }
         return "Plaintext: " + plainswer + "\n" + "MD5 Hash: " + md5swer;
