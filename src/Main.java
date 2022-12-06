@@ -21,7 +21,7 @@ public class Main {
             System.out.println("Encryption Result");
             System.out.println("MD5 Hash: " + RBrute.MD5a(ans));
             System.out.println("SHA-256 Hash: " + RBrute.SHA256a(ans));
-            System.out.println("BCrypt Hash (4 Rounds): " + BCrypt.hashpw(ans,BCrypt.gensalt(4)));
+            System.out.println("BCrypt Hash (12 Rounds): " + BCrypt.hashpw(ans,BCrypt.gensalt(12)));
             exit(1);
         }
         System.out.println("Common Password Attack Result");

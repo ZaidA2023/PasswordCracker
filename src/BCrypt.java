@@ -70,7 +70,7 @@ public class BCrypt {
 	private static final int BCRYPT_SALT_LEN = 16;
 
 	// Blowfish parameters
-	private static final int BLOWFISH_NUM_ROUNDS = 16;
+	private static final int BLOWFISH_NUM_ROUNDS = 8;
 
 	// Initial contents of key schedule
 	private static final int P_orig[] = {

@@ -40,3 +40,12 @@ After that, type an & sign and then the path to the java.exe file we found above
 For example
 
 	 & 'C:\Users\zaid2\.jdks\openjdk-19.0.1\bin\java.exe' -jar pass.jar
+
+### Bugs/Issues
+
+1. For BCrypt, the more rounds used to encrypt the password, the longer it takes
+to decrypt. It increases exponentially so while a 4 round might be quick, a 6 
+round might take a lot longer.
+2. A user might want to skip using the jar file and run it straight from an
+IDE but it will not work since the filepaths are absolute in the code, they
+have to be manually changed to the filepath of the text files being read.

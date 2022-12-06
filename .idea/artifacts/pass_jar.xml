@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="pass:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="root">
+      <element id="archive" name="pass.jar">
+        <element id="module-output" name="passyy" />
+      </element>
+    </root>
+  </artifact>
+</component>
