@@ -7,40 +7,37 @@ import java.util.Locale;
 import java.util.stream.Stream;
 
 public class Dictionary {
+    //Create variable cond that tells Main if an answer was found
     public static int cond2;
     public Dictionary(){
-        cond2=0;
+        //Refresh variable
+        cond2 = 0;
     }
 
-    public String plain(String y) throws IOException {
-        String x = y.toLowerCase(Locale.ROOT);
-        String shanswer;
-        String md5swer;
-        int lineNumber = 0;
+    public String BC(String y) throws IOException {
+        //Opens file (basically)
         BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\words_alpha.txt"));
         String line;
+        //Reads through all lines of file
         while ((line = br.readLine()) != null) {
-            lineNumber++;
-            if(line.equals(x)){
+            //Compares plaintext with BCrypt hash
+            if(BCrypt.checkpw(line,y)){
                 cond2++;
                 break;
             }
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\md5dic.txt"))) {
-            md5swer = lines.skip(lineNumber-1).findFirst().get();
-        }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\sha256dic.txt"))) {
-            shanswer = lines.skip(lineNumber-1).findFirst().get();
-        }
-        return "MD5 Hash: " + md5swer + "\n" + "SHA256 Hash: " + shanswer;
+        return "Plaintext: " + line;
     }
     public String MD5(String y) throws IOException {
+        //Makes user input hash lowercase because my rainbow table uses lowercase
         String x = y.toLowerCase(Locale.ROOT);
-        String shanswer;
+        //Return variable
         String plainswer;
+        //Counts number of lines that are travelled
         int lineNumber = 0;
         BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\md5dic.txt"));
         String line;
+        //Reads through all of file
         while ((line = br.readLine()) != null) {
             lineNumber++;
             if(line.equals(x)){
@@ -48,20 +45,17 @@ public class Dictionary {
                 break;
             }
         }
+        //Jumps to the same number line from the MD5 file to the plaintext file
         try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\words_alpha.txt"))) {
             plainswer = lines.skip(lineNumber-1).findFirst().get();
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\sha256dic.txt"))) {
-            shanswer = lines.skip(lineNumber-1).findFirst().get();
-        }
-        return "Plaintext: " + plainswer + "\n" + "SHA256 Hash: " + shanswer;
+        return "Plaintext: " + plainswer;
     }
 
-
+    //The same as MD5, just changed it to look through the SHA-256 file
     public String SHA256(String y) throws IOException {
         String x = y.toLowerCase(Locale.ROOT);
         String plainswer;
-        String md5swer;
         int lineNumber = 0;
         BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\sha256dic.txt"));
         String line;
@@ -72,13 +66,10 @@ public class Dictionary {
                 break;
             }
         }
-        try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\md5dic.txt"))) {
-            md5swer = lines.skip(lineNumber-1).findFirst().get();
-        }
         try (Stream<String> lines = Files.lines(Paths.get("C:\\Users\\zaid2\\IdeaProjects\\PasswordCracker\\src\\words_alpha.txt"))) {
             plainswer = lines.skip(lineNumber-1).findFirst().get();
         }
-        return "Plaintext: " + plainswer + "\n" + "MD5 Hash: " + md5swer;
+        return "Plaintext: " + plainswer;
     }
 }
 
