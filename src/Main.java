@@ -5,15 +5,15 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class Main {
-    static Scanner wow = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         System.out.println("Insert MD5/SHA256/BCrypt Hash or Plaintext");
         //User input is ans
-        String ans = wow.next();
+        String ans = input.next();
         //Creating Objects
-        Brute bob = new Brute();
-        Dictionary mary = new Dictionary();
-        RBrute hi = new RBrute();
+        Brute common = new Brute();
+        Dictionary dic = new Dictionary();
+        RBrute brutes = new RBrute();
         //Final answer variable
         String answer;
         //Checks if user input is a hash, if not then encryption ensues
@@ -29,20 +29,20 @@ public class Main {
 
         //Checks length of user input to know which method to run
         if (ans.length() == 32) {
-            answer = bob.MD5(ans);
+            answer = common.MD5(ans);
             //Checks condition to see if an answer was found, if not... next
             if (Brute.cond == 1) {
                 System.out.println(answer);
                 exit(1);
             }
         } else if (ans.length() == 64) {
-            answer = bob.SHA256(ans);
+            answer = common.SHA256(ans);
             if (Brute.cond == 1) {
                 System.out.println(answer);
                 exit(1);
             }
         } else if(ans.length() == 60){
-            answer = bob.BC(ans);
+            answer = common.BC(ans);
             if (Brute.cond == 1){
                 System.out.println(answer);
                 exit(1);
@@ -57,19 +57,19 @@ public class Main {
         System.out.println("Dictionary Attack Result");
         //Checks length of user input to know which method to run
         if (ans.length() == 32) {
-            answer = mary.MD5(ans);
+            answer = dic.MD5(ans);
             if (Dictionary.cond2 == 1) {
                 System.out.println(answer);
                 exit(1);
             }
         } else if (ans.length() == 64) {
-            answer = mary.SHA256(ans);
+            answer = dic.SHA256(ans);
             if (Dictionary.cond2 == 1) {
                 System.out.println(answer);
                 exit(1);
             }
         } else if(ans.length() == 60){
-            answer = mary.BC(ans);
+            answer = dic.BC(ans);
             if (Brute.cond == 1){
                 System.out.println(answer);
                 exit(1);
@@ -88,7 +88,7 @@ public class Main {
             System.out.println(hi.Brute(ans,max));
              */
             System.out.println("Running... This might take a while, go do something else");
-            System.out.println(hi.Brute(ans,4));
+            System.out.println(brutes.Brute(ans,4));
         }
 
 
