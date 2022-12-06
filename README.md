@@ -1,4 +1,4 @@
-# NightCrack
+# WreckItRalph
 #### By: [Zaid Albustami](https://github.com/ZaidA2023) and Kevin Hyunh
 
 Java Password Cracker 
