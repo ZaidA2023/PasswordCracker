@@ -17,8 +17,41 @@ Java Password Cracker
 
 ### Command Line Arguments
 
-	There is only one, your password :)
+After following the How-To down below you are left with a command ending in "pass.jar".
+The commands must be written after "pass.jar", be done in this order, and be separated by spaces
 
+1
+
+	-e = Encryption
+	-d = Decryption
+
+2
+	
+	-m = MD5
+	-s = SHA-256
+	-b = Bcrypt
+
+3
+
+	User input (Hash or Plaintext) within single quotations
+
+#### Example
+	& 'C:\Users\zaid2\.jdks\openjdk-19.0.1\bin\java.exe' -jar pass.jar -e -m 'wreck'
+Output
+
+	Encryption Result
+	MD5 Hash: 02a13d725157a08db3864a8b9f4dfe0c
+Or
+
+	& 'C:\Users\zaid2\.jdks\openjdk-19.0.1\bin\java.exe' -jar pass.jar -d -s '7e4353d9a9b2d35e73c461e9c50a1f60a5da42dc4a0f53faac2b7e2d413aca17'	
+Output
+
+	Common Password Attack Result
+	No result
+
+	Dictionary Attack Result
+	Plaintext: wreck
+	
 ### How-To
 	
 This program requires a jdk download, preferably 19, which can be found [here](https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.exe)
@@ -46,6 +79,6 @@ For example
 1. For BCrypt, the more rounds used to encrypt the password, the longer it takes
 to decrypt. It increases exponentially so while a 4 round might be quick, a 6 
 round might take a lot longer.
-2. A user might want to skip using the jar file and run it straight from an
-IDE but it will not work since the filepaths are absolute in the code, they
-have to be manually changed to the filepath of the text files being read.
+2. The filepaths of the files used for the rainbow table are absolute and therefore must be changed for them to work.
+However, I found this is only true sometimes, sometimes the code gives a FileNotFound error and others it works although the file
+paths are not correct.

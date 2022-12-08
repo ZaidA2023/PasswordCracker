@@ -2,9 +2,11 @@
   <artifact name="pass:jar">
     <output-path>$PROJECT_DIR$/out/artifacts</output-path>
     <root id="root">
-      <element id="archive" name="pass.jar">
+      <element id="archive" name="passyy.jar">
         <element id="module-output" name="passyy" />
+        <element id="module-output" name="bruh" />
       </element>
+      <element id="library" level="project" name="at.favre.lib.bcrypt" />
     </root>
   </artifact>
 </component>
